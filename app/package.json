@@ -1,0 +1,21 @@
+{
+  "name": "browser-code-coverage",
+  "version": "0.1.0",
+  "description": "Use Puppeteer and Chrome Code Coverage to check project for unused code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Studio Stomp",
+    "email": "hello@studiostomp.nl",
+    "url": "https://studiostomp.nl/"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "minimist": "^1.2.5",
+    "nyc": "^15.1.0",
+    "puppeteer": "^5.5.0",
+    "puppeteer-to-istanbul": "^1.4.0"
+  }
+}

@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# Define the command to execute so can be reused multiple times
+COMPOSE="docker-compose -f docker-compose.yml"
+
+# If the amount of arguments passed onto this script is greater than 0
+if [[ $# -gt 0 ]]; then
+
+    # If "php" is used, pass-thru to php container
+    # inside a new container
+    if [ "$1" == "npm" ]; then
+        shift 1
+        ${COMPOSE} run --rm puppeteer npm "$@"
+
+    # If "run" is used, execute the index.js
+    elif [ "$1" == "run" ]; then
+        shift 1
+        ${COMPOSE} run --rm puppeteer node index.js "$@"
+        ${COMPOSE} run --rm puppeteer npx nyc report --reporter=html
+
+    # If "enter" is used, enter a bash session
+    elif [ "$1" == "enter" ]; then
+        shift 1
+        ${COMPOSE} run --rm puppeteer bash
+
+     # Else, pass-thru args to docker-compose
+    else
+        ${COMPOSE} "$@"
+    fi
+
+else
+    ${COMPOSE} ps
+fi
