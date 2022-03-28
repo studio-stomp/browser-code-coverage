@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "nyc": "^15.1.0",
     "puppeteer": "^5.5.0",
     "puppeteer-to-istanbul": "^1.4.0"
